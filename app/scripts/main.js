@@ -65,7 +65,7 @@
                     'service worker became redundant.');
 
               default:
-                  // Ignore
+                // Ignore
               }
             };
           }
@@ -76,4 +76,19 @@
   }
 
   // Your custom JavaScript goes here
+
+  const button = document.getElementById('cloneButton');
+  button.addEventListener('click', cloneBacon);
+
+  /**
+   * Clone bacons image.
+   * @return {void} Fuction returned nothing.
+   */
+  function cloneBacon() {
+    const picture = document.getElementById('baconImage');
+    const section = document.getElementById('imageSection');
+
+    const cloneImage = picture.cloneNode(true);
+    section.appendChild(cloneImage);
+  }
 })();
