@@ -17,7 +17,7 @@
  *
  */
 /* eslint-env browser */
-(function() {
+(function () {
   'use strict';
 
   // Check to make sure service workers are supported in the current browser,
@@ -39,9 +39,9 @@
     && (window.location.protocol === 'https:' || isLocalhost)
   ) {
     navigator.serviceWorker.register('service-worker.js')
-      .then(function(registration) {
+      .then(function (registration) {
         // updatefound is fired if service-worker.js changes.
-        registration.onupdatefound = function() {
+        registration.onupdatefound = function () {
           // updatefound is also fired the very first time the SW is installed,
           // and there's no need to prompt for a reload at that point.
           // So check here to see if the page is already controlled,
@@ -51,26 +51,26 @@
             // https://slightlyoff.github.io/ServiceWorker/spec/service_worker/index.html#service-worker-container-updatefound-event
             const installingWorker = registration.installing;
 
-            installingWorker.onstatechange = function() {
+            installingWorker.onstatechange = function () {
               switch (installingWorker.state) {
-              case 'installed':
-                // At this point, the old content will have been purged and the
-                // fresh content will have been added to the cache.
-                // It's the perfect time to display a "New content is
-                // available; please refresh." message in the page's interface.
-                break;
+                case 'installed':
+                  // At this point, the old content will have been purged and the
+                  // fresh content will have been added to the cache.
+                  // It's the perfect time to display a "New content is
+                  // available; please refresh." message in the page's interface.
+                  break;
 
-              case 'redundant':
-                throw new Error('The installing ' +
+                case 'redundant':
+                  throw new Error('The installing ' +
                     'service worker became redundant.');
 
-              default:
+                default:
                 // Ignore
               }
             };
           }
         };
-      }).catch(function(e) {
+      }).catch(function (e) {
         console.error('Error during service worker registration:', e);
       });
   }
@@ -81,6 +81,7 @@
   button.addEventListener('click', cloneBacon);
 
   /**
+   * Task 1
    * Clone bacons image.
    * @return {void} Fuction returned nothing.
    */
@@ -91,4 +92,29 @@
     const cloneImage = picture.cloneNode(true);
     section.appendChild(cloneImage);
   }
+  /**
+   * Task 2
+   * Clone bacons image.
+   * @return {void} Fuction returned nothing.
+   */
+  function chooseTab() {
+    document.querySelectorAll('#tab-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const tab = button.parentElement;
+        const tabWrapper = tab.parentElement.parentElement;
+        const tabName = button.dataset.forTab;
+        const activeTab = tabWrapper.querySelector(`.tab__content[data-tab="${tabName}"]`);
+
+        tabWrapper.querySelectorAll('.tab__content').forEach((tab) => {
+          tab.classList.remove('mdl-layout__tab-panel--active');
+        });
+
+        activeTab.classList.add('mdl-layout__tab-panel--active');
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    chooseTab();
+  });
 })();

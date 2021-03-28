@@ -58,9 +58,13 @@ html, body {
   background-color: white;
   height: 4px;
 }
-.mdl-demo main > .mdl-layout__tab-panel {
+.mdl-demo main > .tab__content {
+  display: none;
+}
+.mdl-demo main > .mdl-layout__tab-panel--active {
   padding: 8px;
   padding-top: 48px;
+  display: block;
 }
 .mdl-demo .mdl-card {
   height: auto;
@@ -210,4 +214,9 @@ html, body {
 }
 .mdl-demo .mdl-menu__container {
   z-index: 99;
+}
+
+.tabs {
+  display: flex;
+  direction: column;
 }
