@@ -6,10 +6,17 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    section{
+    form{
         display: flex;
         max-width: 1024px;
         box-shadow: none;
+        #error, #success{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: red;
+        }
         .payments-details, .personal-information, .complete{
             align-self: flex-start;
             display: flex;

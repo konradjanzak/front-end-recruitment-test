@@ -94,7 +94,7 @@
   }
   /**
    * Task 2
-   * Clone bacons image.
+   * Add new tab.
    * @return {void} Fuction returned nothing.
    */
   function chooseTab() {
@@ -118,3 +118,35 @@
     chooseTab();
   });
 })();
+/**
+ * Task 3
+ * Validation.
+ * @return {void} Fuction returned nothing.
+ */
+const lastName = document.getElementById('last-name');
+const form = document.getElementById('form');
+const postalCode = document.getElementById('postal-code');
+const creditCardNumber = document.getElementById('credit-card');
+const error = document.getElementById('error');
+const success = document.getElementById('success');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const messages = [];
+
+  if (lastName.value.length <= 1) {
+    messages.push('Last name must contain at least 2 characters.');
+  }
+  if (postalCode.value.length !== 6) {
+    messages.push('Postal Code must contain 6 characters.');
+  }
+  if (!creditCardNumber.value.includes('-')) {
+    messages.push('Credit card number should have format: XXXX-XXXX-XXXX-XXXX');
+  }
+  if (messages.length > 0) {
+    error.innerText = messages.join(', ');
+  }
+  if (messages.length === 0) {
+    success.innerHTML = 'Your form has been filled successfully and sent!';
+  }
+});

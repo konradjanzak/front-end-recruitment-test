@@ -9,7 +9,7 @@
   padding: 0;
 }
 
-#checkout section {
+#checkout form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,7 +18,15 @@
           box-shadow: none;
 }
 
-#checkout section .payments-details, #checkout section .personal-information, #checkout section .complete {
+#checkout form #error, #checkout form #success {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: red;
+}
+
+#checkout form .payments-details, #checkout form .personal-information, #checkout form .complete {
   -ms-flex-item-align: start;
       align-self: flex-start;
   display: -webkit-box;
@@ -29,7 +37,7 @@
       flex-wrap: wrap;
 }
 
-#checkout section .payments-details h2, #checkout section .personal-information h2, #checkout section .complete h2 {
+#checkout form .payments-details h2, #checkout form .personal-information h2, #checkout form .complete h2 {
   font-size: 10px;
   font-weight: 700;
   -ms-flex-preferred-size: 100%;
@@ -40,7 +48,7 @@
   color: #000;
 }
 
-#checkout section .payments-details h2 .section-number, #checkout section .personal-information h2 .section-number, #checkout section .complete h2 .section-number {
+#checkout form .payments-details h2 .section-number, #checkout form .personal-information h2 .section-number, #checkout form .complete h2 .section-number {
   display: inline-block;
   background-color: #000;
   color: #fff;
@@ -52,7 +60,7 @@
   text-align: center;
 }
 
-#checkout section .payments-details .input-wrapper, #checkout section .personal-information .input-wrapper, #checkout section .complete .input-wrapper {
+#checkout form .payments-details .input-wrapper, #checkout form .personal-information .input-wrapper, #checkout form .complete .input-wrapper {
   position: relative;
   -ms-flex-preferred-size: 45%;
       flex-basis: 45%;
@@ -64,7 +72,7 @@
   width: 275px;
 }
 
-#checkout section .payments-details .input-wrapper label, #checkout section .personal-information .input-wrapper label, #checkout section .complete .input-wrapper label {
+#checkout form .payments-details .input-wrapper label, #checkout form .personal-information .input-wrapper label, #checkout form .complete .input-wrapper label {
   position: absolute;
   top: 5px;
   left: 10px;
@@ -73,7 +81,7 @@
   font-weight: 700;
 }
 
-#checkout section .payments-details .input-wrapper input, #checkout section .payments-details .input-wrapper select, #checkout section .personal-information .input-wrapper input, #checkout section .personal-information .input-wrapper select, #checkout section .complete .input-wrapper input, #checkout section .complete .input-wrapper select {
+#checkout form .payments-details .input-wrapper input, #checkout form .payments-details .input-wrapper select, #checkout form .personal-information .input-wrapper input, #checkout form .personal-information .input-wrapper select, #checkout form .complete .input-wrapper input, #checkout form .complete .input-wrapper select {
   padding: 29px 0px 5px 10px;
   border: 1px solid #f2f2f2;
   width: 100%;
@@ -82,12 +90,12 @@
   font-size: 12px;
 }
 
-#checkout section .payments-details .input-wrapper input#country, #checkout section .payments-details .input-wrapper select#country, #checkout section .personal-information .input-wrapper input#country, #checkout section .personal-information .input-wrapper select#country, #checkout section .complete .input-wrapper input#country, #checkout section .complete .input-wrapper select#country {
+#checkout form .payments-details .input-wrapper input#country, #checkout form .payments-details .input-wrapper select#country, #checkout form .personal-information .input-wrapper input#country, #checkout form .personal-information .input-wrapper select#country, #checkout form .complete .input-wrapper input#country, #checkout form .complete .input-wrapper select#country {
   padding: 28px 0 4px 5px;
   width: 102%;
 }
 
-#checkout section .payments-details .complete-button, #checkout section .personal-information .complete-button, #checkout section .complete .complete-button {
+#checkout form .payments-details .complete-button, #checkout form .personal-information .complete-button, #checkout form .complete .complete-button {
   background-color: #6fd401;
   border: none;
   color: #fff;
@@ -99,17 +107,17 @@
   height: 50px;
 }
 
-#checkout section .personal-information :nth-of-type(3), #checkout section .personal-information :nth-of-type(6) {
+#checkout form .personal-information :nth-of-type(3), #checkout form .personal-information :nth-of-type(6) {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
 }
 
-#checkout section .payments-details :nth-of-type(1) {
+#checkout form .payments-details :nth-of-type(1) {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
 }
 
-#checkout section .order {
+#checkout form .order {
   margin: 70px 0 0 10px;
   width: 30%;
   background-color: #fff;
@@ -125,7 +133,7 @@
   color: #000;
 }
 
-#checkout section .order h2 {
+#checkout form .order h2 {
   font-size: 16px;
   font-weight: 700;
   -webkit-box-flex: 1;
@@ -137,7 +145,7 @@
   margin: 0 20px 0 0;
 }
 
-#checkout section .order h3 {
+#checkout form .order h3 {
   font-size: 10px;
   font-weight: 700;
   -ms-flex-preferred-size: 100%;
@@ -147,7 +155,7 @@
   margin: 25px 0 20px 20px;
 }
 
-#checkout section .order p {
+#checkout form .order p {
   font-size: 10px;
   -ms-flex-preferred-size: 40%;
       flex-basis: 40%;
@@ -158,18 +166,18 @@
   line-height: 10px;
 }
 
-#checkout section .order p:nth-of-type(even) {
+#checkout form .order p:nth-of-type(even) {
   text-align: end;
   margin: 0 20px 0 0;
 }
 
-#checkout section .order .modern-buckle {
+#checkout form .order .modern-buckle {
   position: relative;
   padding-bottom: 29px;
   margin-bottom: 16px;
 }
 
-#checkout section .order .modern-buckle::after {
+#checkout form .order .modern-buckle::after {
   position: absolute;
   left: 0;
   content: " ";
@@ -179,13 +187,13 @@
   padding-top: 29px;
 }
 
-#checkout section .order .estimated-tax {
+#checkout form .order .estimated-tax {
   position: relative;
   padding-bottom: 20px;
   margin-bottom: 16px;
 }
 
-#checkout section .order .estimated-tax::after {
+#checkout form .order .estimated-tax::after {
   position: absolute;
   left: 0;
   content: " ";
